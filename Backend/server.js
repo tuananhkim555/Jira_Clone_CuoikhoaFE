@@ -9,7 +9,7 @@ import mysql from "mysql2";
 import cors from "cors";
 import { DataTypes, Sequelize } from "sequelize";
 import { handleError } from "./src/common/helpers/error.helper.js";
-
+import rootRouter from "./src/routes/root.router.js";
 const app = express();
 
 // sử dụng middleware chuyển JSON sang đối tượng JS (object, ...)
@@ -21,11 +21,7 @@ app.use(cors({
    origin: [`http://localhost:5173`, `https://google.com`]
 }));
 
-
-
-
-app.use(handleError);
-
+app.use(`/`,rootRouter);
 
 
 
